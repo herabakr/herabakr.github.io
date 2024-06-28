@@ -1,0 +1,256 @@
+<html>
+	
+	<head>
+		
+		<title>Reach Us</title>
+		
+		<link rel = "stylesheet" href = "style.css"/>
+		
+	</head>
+	
+	<body>
+		
+		<div class = "menuPosition">
+			
+			<!-- Navigation menu symbol -->
+			
+			<input type = "checkbox" class = "buttonToggle">
+			
+			<div class = "buttonDesign">
+				
+				<div>
+				</div>
+				
+			</div>
+			
+			<div class = "menu">
+				
+				<div>
+					
+					<div>
+						
+						<ul>
+							
+							<!-- Showing all pages in navigation menu -->
+							
+							<li><a href = "aboutMe.html">About Me</a></li>
+							<li id = "projectPage"><a href = "projectWork.html">Project Work</a></li>
+							<li><a href = "reachUs.html">Reach Us</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		<div class = "main">
+			
+			<div class = "content">
+				
+				<div class = "stream">
+					
+					<div class = "pageHeader">
+						
+						<h1>Reach Us</h1>
+						<h2>Record a Video Message as Feedback</h2>
+						
+					</div>
+					
+					<!-- Video message layout -->
+					
+					<div class = "alignContent">
+						
+						<video id = "liveCamera" class = "videoMessage" autoplay muted></video>
+						
+						<div class = "videoOptions">
+							
+							<button id = "startVideo">START</button>
+							<button id = "stopVideo">STOP</button>
+							
+						</div>
+						
+						<video id = "recorded" class = "videoMessage" controls></video>
+						
+						<div class = "videoOptions">
+							
+							<button id = "downloadVideo">DOWNLOAD</button>
+							
+						</div>
+						
+					</div>
+					
+					<pre id = "log"></pre>
+					
+				</div>
+				
+				<div class = "gap">
+				</div>
+				
+				<!-- Advertisement section showing project work images -->
+				
+				<div class = "advertPanel">
+				
+					<img class = "advert" src = "media/advert3.png">
+					<img class = "advert" src = "media/advert2.png">
+					<img class = "advert" src = "media/advert1.png">
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		<footer>
+			
+			<p>This website was developed strictly for academic purpose only.</p>
+			<p><a class = "redirect" href = "https://www.ypccollege.edu.my/" target = "blank">YPC International College</a></p>
+			
+		</footer>
+		
+		<script>
+			
+			<!-- Set user's choice from navigation menu -->
+			
+			$("#projectPage").click(function() {
+				
+				sessionStorage.setItem("aboutMe", "projectWork");
+				
+			});
+			
+		</script>
+		
+		<script>
+			
+			<!-- Advertisement panel slide show -->
+			
+			var slide = 0;
+			carousel();
+			
+			function carousel() {
+				
+				var index;
+				var advertPicture = document.getElementsByClassName("advert");
+				
+				for (index = 0; index < advertPicture.length; index++) {
+					
+					advertPicture[index].style.display = "none";
+					
+				}
+				
+				slide++;
+				
+				if (slide > advertPicture.length) {slide = 1}
+				
+				advertPicture[slide-1].style.display = "block";
+				setTimeout(carousel, 1800);
+				
+			}
+			
+		</script>
+		
+		<script>
+			
+			<!-- Show a preview of the recording and download file to computer -->
+			
+			let liveCamera = document.getElementById("liveCamera");
+			let recorded = document.getElementById("recorded");
+			let startVideo = document.getElementById("startVideo");
+			let stopVideo = document.getElementById("stopVideo");
+			let downloadVideo = document.getElementById("downloadVideo");
+			let logElement = document.getElementById("log");
+			
+			let recordingTimeMS = 10000;
+			
+			function log(msg) {
+				
+				logElement.innerHTML += msg + "\n";
+				
+			}
+			
+			function wait(delayInMS) {
+				
+				return new Promise(resolve => setTimeout(resolve, delayInMS));
+				
+			}
+			
+			function startRecording(stream, lengthInMS) {
+				
+				let recorder = new MediaRecorder(stream);
+				let data = [];
+				
+				recorder.ondataavailable = event => data.push(event.data);
+				recorder.start();
+				
+				log(recorder.state + " for " + (lengthInMS/1000) + " seconds...");
+				
+				let stopped = new Promise((resolve, reject) => {
+					
+					recorder.onstop = resolve;
+					recorder.onerror = event => reject(event.name);
+					
+				});
+			
+				let recorded = wait(lengthInMS).then(() => recorder.state == "recorded" && recorder.stop());
+				
+				return Promise.all([
+					
+					stopped,
+					recorded
+					
+				])
+				
+				.then(() => data);
+				
+			}
+			
+			function stop(stream) {
+				
+				stream.getTracks().forEach(track => track.stop());
+				
+			}
+			
+			startVideo.addEventListener("click", function() {
+				
+				navigator.mediaDevices.getUserMedia({
+					
+					video: true,
+					audio: true
+					
+				}).then(stream => {
+						
+					liveCamera.srcObject = stream;
+					downloadVideo.href = stream;
+					liveCamera.captureStream = liveCamera.captureStream || liveCamera.mozCaptureStream;
+					return new Promise(resolve => liveCamera.onplaying = resolve);
+					
+				}).then(() => startRecording(liveCamera.captureStream(), recordingTimeMS))
+				.then (recordedChunks => {
+					
+					let recordedBlob = new Blob(recordedChunks, { type: "video/webm" });
+					recorded.src = URL.createObjectURL(recordedBlob);
+					downloadVideo.href = recorded.src;
+					downloadVideo.download = "VideoMessage.webm";
+					
+					log("Successfully recorded " + recordedBlob.size + " bytes of " + recordedBlob.type + " media.");
+					
+				})
+				
+				.catch(log);
+				
+			}, false);
+			
+			stopVideo.addEventListener("click", function() {
+				
+				stop(liveCamera.srcObject);
+				
+			}, false);
+			
+		</script>
+		
+	</body>
+	
+</html>

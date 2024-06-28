@@ -1,0 +1,361 @@
+<html>
+	
+	<head>
+		
+		<title>Project Work</title>
+		
+		<link rel = "stylesheet" href = "style.css"/>
+		
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		
+	</head>
+	
+	<body>
+		
+		<div class = "menuPosition">
+			
+			<!-- Navigation menu symbol -->
+			
+			<input type = "checkbox" class = "buttonToggle">
+			
+			<div class = "buttonDesign">
+				
+				<div>
+				</div>
+				
+			</div>
+			
+			<div class = "menu">
+				
+				<div>
+					
+					<div>
+						
+						<ul>
+							
+							<!-- Showing all pages in navigation menu -->
+							
+							<li><a href = "aboutMe.html">About Me</a></li>
+							<li id = "projectPage"><a href = "projectWork.html">Project Work</a></li>
+							<li><a href = "reachUs.html">Reach Us</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		<div class = "main">
+			
+			<div id = "projectMenu">
+				
+				<div class = "pageHeader">
+					
+					<h1>Project Work</h1>
+					<h2>Select a Project for a Full Overview</h2>
+					
+				</div>
+				
+				<!-- Project work section for the user to choose -->
+				
+				<section class = "row">
+					
+					<div id = "projectWork3" class="column">
+						
+						<a href = "projectWork.html">
+							
+							<img src = "media/projectWork3.png">
+							<p class = "caption">Seat Booking System</p>
+							
+						</a>
+						
+					</div>
+					
+					<div id = "projectWork2" class="column">
+						
+						<a href = "projectWork.html">
+							
+							<img src = "media/projectWork2.png">
+							<p class = "caption">7 Segment Display</p>
+							
+						</a>
+						
+					</div>
+					
+					<div id = "projectWork1" class="column">
+						
+						<a href = "projectWork.html">
+							
+							<img src = "media/projectWork1.png">
+							<p class = "caption">Digital Trends Analysis</p>
+							
+						</a>
+						
+					</div>
+					
+				</section>
+				
+			</div>
+			
+			<!-- First project details -->
+			
+			<div id = "4600YCOM" class = "hide">
+				
+				<div class = "pageHeader">
+					
+					<h1>4600YCOM Introduction to Programming</h1>
+					<h2>Seat Booking System</h2>
+					
+				</div>
+				
+				<div class = "videoSpace">
+					
+					<video id = "4600YCOMVideo" width = "100%">
+						
+						<source src = "media/work3.mp4" type = "video/mp4"/>
+						
+					</video>
+					
+					<div class = "videoOptions">
+						
+						<button onclick = "playPause()">PLAY | PAUSE</button>
+						<button onclick = "replayVideo()">REPLAY</button>
+						
+					</div>
+					
+				</div>
+				
+				<p id = "4600YCOMSpeech" class = "overview">
+				This project is by far one of my favourite as it involves coding and problem solving. I learned C language during foundation and I made sure that I understood the basic thoroughly. There are a lot of differences between C and Java, but knowing the basic really helped me constructing my code. The seat booking system was for airplane seats, and the most vital part of this project was to filter the seats based on the requirement given by the user. This was an individual project and I can actually say that I had fun doing it as it really did poke my interest. I wish I had spend more time on designing a better layout for the output. Time management is definitely one of those things that I have been continuously working on as it is really important in my daily life.
+				</p>
+				
+				<button onclick = "playSpeech()">READ ALOUD</button>
+				
+			</div>
+			
+			<!-- Second project details -->
+			
+			<div id = "4601YCOM" class = "hide">
+				
+				<div class = "pageHeader">
+					
+					<h1>4601YCOM Computer Systems</h1>
+					<h2>7 Segment Display</h2>
+					
+				</div>
+				
+				<div class = "videoSpace">
+					
+					<video id = "4601YCOMVideo" width = "100%">
+						
+						<source src = "media/work2.mp4" type = "video/mp4"/>
+						
+					</video>
+					
+					<div class = "videoOptions">
+						
+						<button onclick = "playPause()">PLAY | PAUSE</button>
+						<button onclick = "replayVideo()">REPLAY</button>
+						
+					</div>
+					
+				</div>
+				
+				<p id = "4601YCOMSpeech"class = "overview">
+				Logic circuit probably took up half of the entire module for computer systems but it is my preferred half. In my personal humble opinion, there is a really thin line between stress and fun when it comes to assembling a logic circuit. It is really fun when you have a clear vision of how the circuit would look in the end but when you do not, the wires can quickly get messy. Therefore, it is really good to keep in mind that a proper planning is needed when you have to do a logic circuit. Some of the methods that can be implemented in design planning are simplifying boolean expressions and making truth tables. This project really helped me understand the concept of logic circuit as it required a lot of researching and going through trial and error.
+				</p>
+				
+				<button onclick = "playSpeech()">READ ALOUD</button>
+				
+			</div>
+			
+			<!-- Third project details -->
+			
+			<div id = "BZ31083" class = "hide">
+				
+				<div class = "pageHeader">
+					
+					<h1>BZ31083 Digital Business Intelligence</h1>
+					<h2>Digital Trends Analysis</h2>
+					
+				</div>
+				
+				<div class = "videoSpace">
+					
+					<video id = "BZ31083Video" width = "100%">
+						
+						<source src = "media/work1.mp4" type = "video/mp4"/>
+						
+					</video>
+					
+					<div class = "videoOptions">
+						
+						<button onclick = "playPause()">PLAY | PAUSE</button>
+						<button onclick = "replayVideo()">REPLAY</button>
+						
+					</div>
+					
+				</div>
+				
+				<p id = "BZ31083Speech" class = "overview">
+				This project was assigned to me and two of my friends during the third semester of my foundation. We selected restaurant industry in the first coursework and we were requested to do further research on this industry specifically when it comes to digital influence on it. We conducted a questionnaire with 200 people from various age groups and from all across the country. It was one of the most hardest tasks at the time but it did help me improve my social skills as I was the one in charge of promoting the questionnaire and responding to enquiries. Coming up with questions for this questionnaire really help stimulate my brain and increase my creativity. Other than that, this project also helped me see how researching is usually done in a professional environment. Overall, it is a good experience working with my friends who carried out the analysis part of this research.
+				</p>
+				
+				<button onclick = "playSpeech()">READ ALOUD</button>
+				
+			</div>
+			
+		</div>
+		
+		<footer>
+			
+			<p>This website was developed strictly for academic purpose only.</p>
+			<p><a class = "redirect" href = "https://www.ypccollege.edu.my/" target = "blank">YPC International College</a></p>
+			
+		</footer>
+		
+		<script>
+			
+			<!-- Set user's choice from navigation menu -->
+			
+			$("#projectPage").click(function() {
+				
+				sessionStorage.setItem("aboutMe", "projectWork");
+				
+			});
+			
+			<!-- Set user's choice based on project work section and redirect to second page -->
+			
+			$("#projectWork3").click(function() {
+				
+				sessionStorage.setItem("aboutMe", "content3");
+				
+			});
+			
+			$("#projectWork2").click(function() {
+				
+				sessionStorage.setItem("aboutMe", "content2");
+				
+			});
+			
+			$("#projectWork1").click(function() {
+				
+				sessionStorage.setItem("aboutMe", "content1");
+				
+			});
+			
+		</script>
+		
+		<script>
+			
+			<!-- Showing project work section -->
+			
+			if(sessionStorage.getItem("aboutMe") == 'projectWork') {
+				
+				$("#projectMenu").show();
+				$("#4600YCOM").hide();
+				$("#4601YCOM").hide();
+				$("#BZ31083").hide();
+				
+			}
+			
+			<!-- Showing first project details -->
+			
+			else if(sessionStorage.getItem("aboutMe") == 'content3') {
+
+				$("#4600YCOM").show();
+				$("#projectMenu").hide();
+				$("#4601YCOM").hide();
+				$("#BZ31083").hide();
+				
+				<!-- Declare and initialise variable for first project javascript  -->
+				
+				var projectVideo = document.getElementById("4600YCOMVideo");
+				var msg = new SpeechSynthesisUtterance (document.getElementById('4600YCOMSpeech').innerHTML);
+				
+			}
+			
+			<!-- Showing second project details -->
+			
+			else if(sessionStorage.getItem("aboutMe") == 'content2') {
+				
+				$("#4601YCOM").show();
+				$("#projectMenu").hide();
+				$("#4600YCOM").hide();
+				$("#BZ31083").hide();
+				
+				<!-- Declare and initialise variable for second project javascript  -->
+				
+				var projectVideo = document.getElementById("4601YCOMVideo");
+				var msg = new SpeechSynthesisUtterance (document.getElementById('4601YCOMSpeech').innerHTML);
+				
+			}
+			
+			<!-- Showing third project details -->
+			
+			else if(sessionStorage.getItem("aboutMe") == 'content1') {
+				
+				$("#BZ31083").show();
+				$("#projectMenu").hide();
+				$("#4600YCOM").hide();
+				$("#4601YCOM").hide();
+				
+				<!-- Declare and initialise variable for third project javascript  -->
+				
+				var projectVideo = document.getElementById("BZ31083Video");
+				var msg = new SpeechSynthesisUtterance (document.getElementById('BZ31083Speech').innerHTML);
+				
+			}
+			
+		</script>
+		
+		<script>
+			
+			<!-- Play video when the video is paused, pause video when the video is played -->
+			
+			function playPause() {
+				
+				if(projectVideo.paused) {
+					
+					projectVideo.play();
+					
+				}
+				else {
+					
+					projectVideo.pause();
+					
+				}
+				
+			}
+			
+			<!-- Replay video by reloading and automatically playing the video when button is clicked -->
+			
+			function replayVideo() {
+				
+				projectVideo.load();
+				projectVideo.play();
+				
+			}
+			
+		</script>
+		
+		<script>
+			
+			<!-- Speech synthesis for project overview -->
+			
+			function playSpeech(){
+				
+				msg.lang = 'en-UK';
+				window.speechSynthesis.speak(msg);
+				
+			}
+			
+		</script>
+
+	</body>
+	
+</html>
