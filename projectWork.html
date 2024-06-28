@@ -35,7 +35,7 @@
 							
 							<!-- Showing all pages in navigation menu -->
 							
-							<li><a href = "aboutMe.html">About Me</a></li>
+							<li><a href = "index.html">About Me</a></li>
 							<li id = "projectPage"><a href = "projectWork.html">Project Work</a></li>
 							<li><a href = "reachUs.html">Reach Us</a></li>
 							
@@ -224,7 +224,7 @@
 			
 			$("#projectPage").click(function() {
 				
-				sessionStorage.setItem("aboutMe", "projectWork");
+				sessionStorage.setItem("index", "projectWork");
 				
 			});
 			
@@ -232,19 +232,19 @@
 			
 			$("#projectWork3").click(function() {
 				
-				sessionStorage.setItem("aboutMe", "content3");
+				sessionStorage.setItem("index", "content3");
 				
 			});
 			
 			$("#projectWork2").click(function() {
 				
-				sessionStorage.setItem("aboutMe", "content2");
+				sessionStorage.setItem("index", "content2");
 				
 			});
 			
 			$("#projectWork1").click(function() {
 				
-				sessionStorage.setItem("aboutMe", "content1");
+				sessionStorage.setItem("index", "content1");
 				
 			});
 			
@@ -254,7 +254,7 @@
 			
 			<!-- Showing project work section -->
 			
-			if(sessionStorage.getItem("aboutMe") == 'projectWork') {
+			if(sessionStorage.getItem("index") == 'projectWork') {
 				
 				$("#projectMenu").show();
 				$("#4600YCOM").hide();
@@ -265,7 +265,7 @@
 			
 			<!-- Showing first project details -->
 			
-			else if(sessionStorage.getItem("aboutMe") == 'content3') {
+			else if(sessionStorage.getItem("index") == 'content3') {
 
 				$("#4600YCOM").show();
 				$("#projectMenu").hide();
@@ -281,7 +281,7 @@
 			
 			<!-- Showing second project details -->
 			
-			else if(sessionStorage.getItem("aboutMe") == 'content2') {
+			else if(sessionStorage.getItem("index") == 'content2') {
 				
 				$("#4601YCOM").show();
 				$("#projectMenu").hide();
@@ -297,7 +297,7 @@
 			
 			<!-- Showing third project details -->
 			
-			else if(sessionStorage.getItem("aboutMe") == 'content1') {
+			else if(sessionStorage.getItem("index") == 'content1') {
 				
 				$("#BZ31083").show();
 				$("#projectMenu").hide();
