@@ -304,13 +304,12 @@ table {
 tr {
 	
 	background-color: #CBBEBB;
-	color: white;
 	
 }
 
 th, td {
 	
-	color: #534C4B;
+	color: white;
 	padding: 8px;
 	
 }
